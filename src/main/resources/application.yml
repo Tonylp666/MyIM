@@ -1,0 +1,24 @@
+server:
+  port: 8899
+
+datasource:
+  url: localhost:3306/blog_test
+# jdbc_config datasource
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: //${datasource.url}?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    username: root
+    password: 123456
+
+# Hikari config
+    type:
+    hikari:
+      minimum-idle:
+      maximum-pool-size:
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
